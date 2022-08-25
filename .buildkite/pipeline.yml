@@ -1,7 +1,11 @@
 steps:
-  - label: ":docker: build docker image"
-    command:
-      - ".buildkite/steps/build-image.sh"
-      - ".buildkite/steps/upload-image.sh"
-    agents:
-       queue: "default"
+
+  - label: ":docker: Build and push Neon dops tools"
+    branches: "main"
+    commands:
+      - "docker build . -t neonlabsorg/dops-tools:${BUILDKITE_BRANCH}"
+      - "docker login -u ${DHUBU} -p ${DHUBP}"
+      - "docker push neonlabsorg/dops-tools:${BUILDKITE_BRANCH}"
+      - "docker logout"
+      - "docker image rm neonlabsorg/dops-tools:${BUILDKITE_BRANCH}"
+      -
