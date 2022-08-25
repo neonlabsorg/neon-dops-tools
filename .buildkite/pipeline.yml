@@ -8,4 +8,3 @@ steps:
       - "docker push neonlabsorg/dops-tools:${BUILDKITE_BRANCH}"
       - "docker logout"
       - "docker image rm neonlabsorg/dops-tools:${BUILDKITE_BRANCH}"
-      -
