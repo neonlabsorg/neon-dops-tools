@@ -10,4 +10,4 @@ RUN pip install -r /opt/requirements.txt
 
 WORKDIR /opt
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT  ["/bin/sh", "-c", "tail", "-f", "/dev/null"]
