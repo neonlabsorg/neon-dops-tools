@@ -38,7 +38,7 @@ def main():
     elif args.command == "resume":
         maintenance_client.resume()
     elif args.command == "replicate":
-        peers = [Peer(peer_info[0], *(peer_info[1].split(":"))) for peer_info in zip(args.peers[::2], args.peers[1::2])]
+        peers = [Peer(*(peer_info.split(":"))) for peer_info in args.peers]
         maintenance_client.replicate(peers)
 
 
@@ -57,7 +57,7 @@ resume:
 
 replicate:
 
-    python3 neon_maintenance.py replicate proxy-replica proxy-replica:9092
+    python3 neon_maintenance.py replicate proxy-replica:9092
 \x0D"""
 
     parser = argparse.ArgumentParser(prog="neon_maintenance", formatter_class=argparse.RawDescriptionHelpFormatter, epilog=examples)
