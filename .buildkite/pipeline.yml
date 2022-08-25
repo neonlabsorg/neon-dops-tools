@@ -5,6 +5,7 @@ steps:
     commands:
       - "docker build . -t neonlabsorg/dops-tools:${BUILDKITE_BRANCH}"
       - "docker login -u ${DHUBU} -p ${DHUBP}"
+      - "echo USER: ${DHUBU}"
       - "docker push neonlabsorg/dops-tools:${BUILDKITE_BRANCH}"
       - "docker logout"
       - "docker image rm neonlabsorg/dops-tools:${BUILDKITE_BRANCH}"
