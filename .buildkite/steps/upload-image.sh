@@ -7,3 +7,4 @@ handle_error "Failed to docker login, user: ${DHUBU}"
 
 docker push neonlabsorg/dops-tools:${REVISION}
 handle_error "Failed to push neonlabsorg/dops-tools:${REVISION}"
+
