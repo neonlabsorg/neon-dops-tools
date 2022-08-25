@@ -3,3 +3,5 @@ steps:
     command:
       - ".buildkite/steps/build-image.sh"
       - ".buildkite/steps/upload-image.sh"
+    agents:
+       queue: "default"
